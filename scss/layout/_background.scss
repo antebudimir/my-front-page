@@ -1,0 +1,6 @@
+// Card background
+#background {
+	@include flex-row-center;
+	min-height: 100vh;
+	text-align: center;
+}

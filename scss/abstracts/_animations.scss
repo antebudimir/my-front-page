@@ -1,0 +1,18 @@
+// Animations
+@keyframes enlarge {
+	to {
+		transform: scale(1.5);
+	}
+}
+
+@keyframes glide {
+	from {
+		background: $secondary-gradient;
+	}
+}
+
+@keyframes expand {
+	to {
+		transform: scale(1.15);
+	}
+}

@@ -1,0 +1,3 @@
+edit line 534 for position
+&
+line 456 for dot sizes

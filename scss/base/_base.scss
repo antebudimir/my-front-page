@@ -1,0 +1,38 @@
+// Base - global styles
+* {
+	outline: none;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	color: $quaternary-color;
+}
+
+html {
+	background: url(../img/bg.png) center center;
+
+	@include respond-to-width(768px) {
+		background: $secondary-color;
+	}
+
+	@include respond-to-w-and-h(2200px, 1200px) {
+		font-size: 150%;
+	}
+
+	@include respond-to-height(2000px) {
+		font-size: 250%;
+	}
+}
+
+#overlay {
+	background-color: $primary-color-transparent;
+}
+
+ul,
+li {
+	list-style-type: none;
+}
+
+a {
+	font-weight: 900;
+	text-decoration: none;
+}

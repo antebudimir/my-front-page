@@ -1,0 +1,24 @@
+// @font-faces:
+@font-face {
+	font-family: 'Chakra Petch Bold';
+	src: url('../fonts/ChakraPetch-Bold.woff');
+}
+
+// All fonts declared:
+html {
+	font-family: 'Chakra Petch Bold';
+}
+
+h1 {
+	font-size: 2rem;
+	@include respond-to-width(600px) {
+		font-size: 2.5rem;
+	}
+}
+
+// h1 underline
+.underline {
+	border-bottom: $border-line-primary;
+	display: inline-block;
+	padding-bottom: 0.1rem;
+}

@@ -1,0 +1,136 @@
+// Card layout
+#card {
+	border: $border-line-primary;
+	box-shadow: $box-shadow-1;
+	@include flex-alignment(space-between, center);
+	flex-flow: column nowrap;
+	width: 17rem;
+	height: 30rem;
+	padding: 1rem;
+	background: $secondary-color;
+
+	@include respond-to-width(600px) {
+		align-items: initial;
+		width: 35rem;
+		height: 17.5rem;
+		padding: 1.5rem;
+	}
+}
+
+// Menu
+#menu {
+	@include flex-layout(column, nowrap);
+
+	@include respond-to-width(600px) {
+		flex-flow: row nowrap;
+		justify-content: space-between;
+	}
+
+	@include respond-to-width(1024px) {
+		// Blur the rest when one item is hovered over
+		&:hover .menu-item:not(:hover) {
+			opacity: 0.5;
+			filter: blur(0.1rem);
+		}
+	}
+}
+
+// Icons
+.fa-github,
+.fa-linkedin,
+.fa-soundcloud {
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
+
+	@include respond-to-width(600px) {
+		margin-bottom: 0.5rem;
+		font-size: 2.2rem;
+	}
+}
+
+.fa-tv,
+.fa-hard-hat,
+.fa-music {
+	font-size: 1.5rem;
+	@include respond-to-width(600px) {
+		font-size: 1.9rem;
+	}
+}
+
+.container {
+	border: $border-line-secondary;
+	border-radius: 0 0.5rem 0;
+	background: $primary-gradient;
+
+	&:hover {
+		background: $secondary-gradient;
+		color: $tertiary-color;
+	}
+
+	&:hover .fa {
+		color: $tertiary-color;
+	}
+}
+
+.menu-item:not(:last-child) .container {
+	margin-bottom: 1rem;
+	@include respond-to-width(600px) {
+		margin-bottom: 0;
+	}
+}
+
+.menu-item:nth-of-type(1) .container {
+	padding: 0.5rem;
+	animation: glide ease infinite 2.5s;
+	@include respond-to-width(600px) {
+		padding: 1rem 1.3rem;
+	}
+}
+
+.menu-item:nth-of-type(2) .container {
+	padding: 0.5rem 0.55rem;
+	animation: glide ease infinite 2.6s;
+	@include respond-to-width(600px) {
+		padding: 1rem 1.6rem;
+	}
+}
+
+.menu-item:nth-of-type(3) .container {
+	padding: 0.5rem 1.68rem;
+	animation: glide ease infinite 2.7s;
+	@include respond-to-width(600px) {
+		padding: 1rem 2.7rem;
+	}
+}
+
+// Hover & Focus
+.fa:hover {
+	color: $tertiary-color;
+}
+
+.fa-github:hover,
+.fa-linkedin:hover,
+.fa-soundcloud:hover {
+	animation: enlarge 0.3s forwards linear;
+}
+
+a:focus > .fa-github,
+a:focus > .fa-linkedin,
+a:focus > .fa-soundcloud {
+	color: $tertiary-color;
+	animation: enlarge 0.3s forwards linear;
+}
+
+// has to come after the .menu-item:nth-of-type() animations
+.menu-item .container:hover {
+	animation: expand 0.3s forwards linear;
+}
+
+.menu-item a:focus > .container {
+	color: $tertiary-color;
+	animation: expand 0.3s forwards linear;
+}
+
+.container:focus .fa {
+	color: $tertiary-color;
+}

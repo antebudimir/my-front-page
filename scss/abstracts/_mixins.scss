@@ -1,0 +1,43 @@
+// FLEXBOX
+@mixin flex-layout($direction, $wrap) {
+	display: flex;
+	flex-flow: $direction $wrap;
+}
+
+@mixin flex-alignment($justify, $align) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin flex-row-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin flex-column-center {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+
+// Media queries
+@mixin respond-to-width($media) {
+	@media only screen and (min-width: $media) {
+		@content;
+	}
+}
+
+@mixin respond-to-height($media) {
+	@media only screen and (min-height: $media) {
+		@content;
+	}
+}
+
+@mixin respond-to-w-and-h($width, $height) {
+	@media only screen and (min-width: $width) and (min-height: $height) {
+		@content;
+	}
+}
