@@ -1,0 +1,11 @@
+// Message
+#message {
+	border: $border-line-primary;
+	box-shadow: $box-shadow-secondary;
+	position: fixed;
+	max-width: 30rem;
+	max-height: 10rem;
+	margin: 0 1rem;
+	padding: 0.5rem 1rem;
+	background: $primary-color-transparent;
+}
