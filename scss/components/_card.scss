@@ -1,13 +1,16 @@
 // Card layout
 #card {
+	opacity: 0;
 	border: $border-line-primary;
-	box-shadow: $box-shadow-1;
+	box-shadow: $box-shadow-primary;
+
 	@include flex-alignment(space-between, center);
 	flex-flow: column nowrap;
 	width: 17rem;
 	height: 30rem;
 	padding: 1rem;
 	background: $secondary-color;
+	background: $primary-color-transparent;
 
 	@include respond-to-width(600px) {
 		align-items: initial;
