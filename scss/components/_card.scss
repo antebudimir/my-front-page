@@ -1,11 +1,11 @@
 // Card layout
 #card {
-	opacity: 0;
 	border: $border-line-primary;
 	box-shadow: $box-shadow-primary;
+	animation: slideIn 1000ms ease-in;
 
+	@include flex-layout(column, nowrap);
 	@include flex-alignment(space-between, center);
-	flex-flow: column nowrap;
 	width: 17rem;
 	height: 30rem;
 	padding: 1rem;
@@ -25,7 +25,7 @@
 	@include flex-layout(column, nowrap);
 
 	@include respond-to-width(600px) {
-		flex-flow: row nowrap;
+		flex-direction: row;
 		justify-content: space-between;
 	}
 
@@ -39,30 +39,56 @@
 }
 
 // Icons
-.fa-github,
-.fa-linkedin,
-.fa-soundcloud {
+.icon-github1:before {
+	content: '\e902';
+}
+
+.icon-linkedin:before {
+	content: '\e901';
+}
+
+.icon-soundcloud1:before {
+	content: '\e900';
+}
+
+.icon-github1,
+.icon-linkedin,
+.icon-soundcloud1 {
+	display: inline-block;
 	margin-bottom: 1rem;
-	font-size: 1.8rem;
+	font-size: 2.3rem;
 
 	@include respond-to-width(600px) {
 		margin-bottom: 0.5rem;
-		font-size: 2.2rem;
+		font-size: 2.6rem;
 	}
 }
 
-.fa-tv,
-.fa-hard-hat,
-.fa-music {
-	font-size: 1.5rem;
+.icon-cone:before {
+	content: '\e903';
+}
+
+.icon-headphones:before {
+	content: '\e909';
+}
+
+.icon-code:before {
+	content: '\e908';
+}
+
+.icon-code,
+.icon-cone,
+.icon-headphones {
+	font-size: 1.7rem;
 	@include respond-to-width(600px) {
-		font-size: 1.9rem;
+		font-size: 2.1rem;
 	}
 }
 
 .container {
 	border: $border-line-secondary;
 	border-radius: 0 0.5rem 0;
+	@include flex-column-center;
 	background: $primary-gradient;
 
 	&:hover {
@@ -70,7 +96,7 @@
 		color: $tertiary-color;
 	}
 
-	&:hover .fa {
+	&:hover .icon {
 		color: $tertiary-color;
 	}
 }
@@ -82,44 +108,44 @@
 	}
 }
 
-.menu-item:nth-of-type(1) .container {
-	padding: 0.5rem;
-	animation: glide ease infinite 2.5s;
+.menu-item:nth-of-type(1) .container,
+.menu-item:nth-of-type(2) .container,
+.menu-item:nth-of-type(3) .container {
+	width: 8rem;
+	height: 4rem;
+
 	@include respond-to-width(600px) {
-		padding: 1rem 1.3rem;
+		width: 9.6rem;
+		height: 5.5rem;
 	}
+}
+
+.menu-item:nth-of-type(1) .container {
+	animation: glide ease infinite 2.5s;
 }
 
 .menu-item:nth-of-type(2) .container {
-	padding: 0.5rem 0.55rem;
 	animation: glide ease infinite 2.6s;
-	@include respond-to-width(600px) {
-		padding: 1rem 1.6rem;
-	}
 }
 
 .menu-item:nth-of-type(3) .container {
-	padding: 0.5rem 1.68rem;
 	animation: glide ease infinite 2.7s;
-	@include respond-to-width(600px) {
-		padding: 1rem 2.7rem;
-	}
 }
 
 // Hover & Focus
-.fa:hover {
+.icon:hover {
 	color: $tertiary-color;
 }
 
-.fa-github:hover,
-.fa-linkedin:hover,
-.fa-soundcloud:hover {
+.icon-github1:hover,
+.icon-linkedin:hover,
+.icon-soundcloud1:hover {
 	animation: enlarge 0.3s forwards linear;
 }
 
-a:focus > .fa-github,
-a:focus > .fa-linkedin,
-a:focus > .fa-soundcloud {
+.menu-link:focus > .icon-github1,
+.menu-link:focus > .icon-linkedin,
+.menu-link:focus > .icon-soundcloud1 {
 	color: $tertiary-color;
 	animation: enlarge 0.3s forwards linear;
 }
@@ -129,11 +155,11 @@ a:focus > .fa-soundcloud {
 	animation: expand 0.3s forwards linear;
 }
 
-.menu-item a:focus > .container {
+.menu-link:focus > .container {
 	color: $tertiary-color;
 	animation: expand 0.3s forwards linear;
 }
 
-.container:focus .fa {
+.container:focus .icon {
 	color: $tertiary-color;
 }
