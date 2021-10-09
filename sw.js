@@ -3,6 +3,7 @@ const preCacheName = `static-${version}`;
 const precache = [
 	'/',
 	'/fonts/ChakraPetch-Bold.woff',
+	'/fonts/icomoon.woff',
 	'/index.html',
 	'/img/bg.png',
 ];
